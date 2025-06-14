@@ -6,3 +6,6 @@
 
 # Static assets with caching
 /assets/*  /assets/:splat  200  Cache-Control: max-age=31536000
+
+# Route all connections to Https Requests
+/* https://winningdistro.com/:splat 301!
