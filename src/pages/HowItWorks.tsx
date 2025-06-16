@@ -10,7 +10,7 @@ const HowItWorks = () => {
       icon: Upload,
       title: 'Upload Your Music',
       description: 'Upload your tracks, artwork, and metadata through our simple interface. We support all major audio formats.',
-      details: ['High-quality audio files (WAV, FLAC, MP3)', 'Album artwork (3000x3000px minimum)', 'Complete metadata and credits']
+      details: ['High-quality audio files (WAV, FLAC, M4A)', 'Album artwork (3000x3000px minimum)', 'Complete metadata and credits']
     },
     {
       step: 2,
@@ -24,7 +24,7 @@ const HowItWorks = () => {
       icon: Globe,
       title: 'Global Distribution',
       description: 'Your music goes live on 150+ platforms worldwide within 24-48 hours.',
-      details: ['Spotify, Apple Music, Amazon', 'YouTube Music, Deezer, Tidal', 'Social platforms like TikTok, Instagram']
+      details: ['Spotify, Apple Music, Amazon', 'YouTube Music, Boomplay, Deezer, Tidal', 'Social platforms like TikTok, Instagram']
     },
     {
       step: 4,
