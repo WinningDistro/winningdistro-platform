@@ -30,24 +30,24 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: 'Sarah Chen',
+      name: 'Andrae Hibbert',
       role: 'CEO & Founder',
-      bio: 'Former music industry executive with 15+ years experience helping independent artists succeed.',
+      bio: 'Current music industry executive with 15+ years experience helping independent artists succeed.',
     },
     {
-      name: 'Marcus Johnson',
-      role: 'CTO',
-      bio: 'Tech veteran who\'s built platforms for millions of users. Passionate about music and technology.',
+      name: 'Garceo Segree',
+      role: 'CEO & Founder',
+      bio: 'Tech-driven music distribution founder who builds scalable platforms that market artists smarter—turning streams into sustainable careers.',
     },
     {
-      name: 'Elena Rodriguez',
-      role: 'Head of Artist Relations',
-      bio: 'Grammy-nominated producer turned advocate for independent artists and their creative rights.',
+      name: 'Chelly Ann Jones & Rohan Hibbert',
+      role: 'Senior Accountants',
+      bio: 'We lead the accounting infrastructure, implementing scalable systems and automation to ensure accurate, audit-ready financial reporting.',
     },
     {
-      name: 'David Kim',
-      role: 'Head of Marketing',
-      bio: 'Digital marketing expert who\'s helped launch careers for hundreds of emerging artists.',
+      name: 'Shariel Segree & Shanagayle Hibbert',
+      role: 'Head of Artist Relations & Marketing',
+      bio: 'Artist strategists who treats marketing as creative partnership—building audiences that last beyond the algorithm.',
     },
   ];
 
@@ -67,7 +67,7 @@ const About = () => {
             About WinningDistro
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">
-            We're on a mission to democratize music distribution and empower independent artists 
+            We're on a mission to enfranchise music distribution and empower independent artists 
             to reach global audiences while keeping control of their creative work.
           </p>
           <Button asChild className="btn-primary text-lg px-8 py-3">
@@ -95,7 +95,7 @@ const About = () => {
               transparent pricing, and provides the tools needed to succeed in today's music landscape.
             </p>
             <p>
-              Today, we're proud to serve over 50,000 artists worldwide, helping them distribute 
+              Today, we're proud to serve thousands of artists worldwide, helping them distribute 
               their music to every major platform while keeping 85% of their earnings. But we're 
               just getting started.
             </p>
