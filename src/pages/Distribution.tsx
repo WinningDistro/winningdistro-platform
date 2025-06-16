@@ -9,6 +9,7 @@ const Distribution = () => {
     { name: 'Spotify', description: 'World\'s largest music streaming platform', users: '500M+' },
     { name: 'Apple Music', description: 'Premium streaming service by Apple', users: '100M+' },
     { name: 'Amazon Music', description: 'Amazon\'s streaming and download service', users: '100M+' },
+    { name: 'Boomplay', description: 'African streaming giant', users: '100M+' },
     { name: 'YouTube Music', description: 'Google\'s music streaming platform', users: '80M+' },
     { name: 'Deezer', description: 'European streaming giant', users: '16M+' },
     { name: 'Tidal', description: 'High-fidelity music streaming', users: '5M+' },
@@ -27,7 +28,7 @@ const Distribution = () => {
     {
       icon: Clock,
       title: '24-48 Hour Release',
-      description: 'Fast-track your releases to go live across all platforms within 1-2 days.',
+      description: 'Fast-track your releases to go live across all platforms within 1-2 business days.',
     },
     {
       icon: CheckCircle,
