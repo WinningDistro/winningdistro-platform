@@ -31,11 +31,6 @@ const Marketing = () => {
       title: 'Press & Media',
       description: 'Access to music blogs, playlist curators, and media contacts for maximum exposure.',
     },
-    {
-      icon: BarChart3,
-      title: 'ROI Tracking',
-      description: 'Monitor your marketing spend and return on investment with comprehensive reporting.',
-    },
   ];
 
   const campaigns = [
