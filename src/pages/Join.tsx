@@ -41,17 +41,17 @@ const Join = () => {
 
   const testimonials = [
     {
-      name: 'Alex Rivera',
+      name: 'Raheim Jackson(ShawnBad)',
       role: 'Independent Artist',
       quote: 'WinningDistro helped me reach over 1 million streams in my first year. The platform is incredible.',
     },
     {
-      name: 'Maya Johnson',
+      name: 'Jamaal Thompson(1 Biggs Don)',
       role: 'Singer-Songwriter',
       quote: 'Finally, a distribution service that actually cares about artists. The support team is amazing.',
     },
     {
-      name: 'Carlos Martinez',
+      name: 'Kwesi Rodney(Inteligntz Musiq)',
       role: 'Producer',
       quote: 'The analytics tools help me understand my audience better than ever. Highly recommended.',
     },
@@ -145,6 +145,7 @@ const Join = () => {
                 <label className="block text-gold text-sm font-medium mb-2">Country</label>
                 <select className="w-full px-4 py-3 bg-zinc-900 border border-green rounded text-white focus:border-gold focus:outline-none">
                   <option value="">Select your country</option>
+                  <option value="JM">Jamaica</option>
                   <option value="US">United States</option>
                   <option value="UK">United Kingdom</option>
                   <option value="CA">Canada</option>
