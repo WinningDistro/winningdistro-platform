@@ -31,7 +31,6 @@ const Header = () => {
     { name: 'How It Works', href: '/how-it-works' },
     { name: 'Distribution', href: '/distribution' },
     { name: 'Marketing', href: '/marketing' },
-    { name: 'Publishing', href: '/publishing' },
     { name: 'Analytics', href: '/analytics' },
     { name: 'Who We Are', href: '/about' },
     { name: 'Blog', href: '/blog' },
