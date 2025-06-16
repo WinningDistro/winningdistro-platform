@@ -53,7 +53,7 @@ const Join = () => {
     {
       name: 'Roshane Richards (Kanvers)',
       role: 'Independent Artist',
-      quote: 'For the longest i've never experience such efficient services.',
+      quote: 'For the longest i"ve never experience such efficient services.',
     },
     {
       name: 'Kwesi Rodney(Inteligntz Musiq)',
