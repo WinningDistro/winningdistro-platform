@@ -40,7 +40,7 @@ const Join = () => {
   ];
 
   const testimonials = [
-     {
+    {
       name: 'Jamaal Thompson (1Biggs Don)',
       role: 'Singer-Songwriter',
       quote: 'Finally, a distribution service that actually cares about artists. The support team is amazing.',
