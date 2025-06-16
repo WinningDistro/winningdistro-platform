@@ -16,7 +16,6 @@ import Home from '@/pages/Home';
 import HowItWorks from '@/pages/HowItWorks';
 import Distribution from '@/pages/Distribution';
 import Marketing from '@/pages/Marketing';
-import Publishing from '@/pages/Publishing';
 import Analytics from '@/pages/Analytics';
 import About from '@/pages/About';
 import Blog from '@/pages/Blog';
