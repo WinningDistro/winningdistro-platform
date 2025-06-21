@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #000000;
+  --gold: #FFB400;
+  --green: #007847;
+  --white: #ffffff;
+
+  /* Override default shadcn variables with our theme */
+  --background: var(--black);
+  --foreground: var(--gold);
+  --card: var(--black);
+  --card-foreground: var(--gold);
+  --popover: var(--black);
+  --popover-foreground: var(--gold);
+  --primary: var(--gold);
+  --primary-foreground: var(--black);
+  --secondary: var(--green);
+  --secondary-foreground: var(--gold);
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+  --accent: var(--green);
+  --accent-foreground: var(--gold);
+  --destructive: #ef4444;
+  --destructive-foreground: var(--white);
+  --border: var(--green);
+  --input: var(--black);
+  --ring: var(--gold);
+  --radius: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Arial', sans-serif;
+  background-color: var(--black);
+  color: var(--gold);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Custom utility classes */
+.text-gold {
+  color: var(--gold);
+}
+
+.text-green {
+  color: var(--green);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+.border-green {
+  border-color: var(--green);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--green);
+  color: var(--gold);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.btn-secondary:hover {
+  background-color: var(--gold);
+  color: var(--black);
+}
+
+/* Logo styling */
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, var(--green) 50%, var(--gold) 50%);
+  clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
