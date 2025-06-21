@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_HCAPTCHA_SITE_KEY: string
-  readonly VITE_HCAPTCHA_SECRET_KEY: string
+  readonly RECAPTCHA_SECRET_KEY: string
+  readonly RECAPTCHA_PROJECT_ID: string
   readonly VITE_SPOTIFY_CLIENT_ID: string
   readonly VITE_SPOTIFY_CLIENT_SECRET: string
   readonly VITE_INSTAGRAM_APP_ID: string
