@@ -10,7 +10,6 @@ const baseSignupSchema = {
     .min(8, 'Password must be at least 8 characters')
     .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'Password must contain uppercase, lowercase, and number'),
   confirmPassword: z.string(),
-  recaptcha: z.string().min(1, 'Please complete the reCAPTCHA verification'),
   terms: z.boolean().refine(val => val === true, 'You must agree to the terms'),
   newsletter: z.boolean().optional(),
 };

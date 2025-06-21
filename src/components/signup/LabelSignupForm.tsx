@@ -3,7 +3,6 @@ import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Link, useNavigate } from 'react-router-dom';
-import { HCaptchaComponent } from '@/lib/hcaptcha';
 import { toast } from 'sonner';
 import {
   Card,
@@ -79,30 +78,12 @@ const LabelSignupForm: React.FC<LabelSignupFormProps> = ({ onBack }) => {
       country: '',
       password: '',
       confirmPassword: '',
-      recaptcha: '',
       terms: false,
       newsletter: false,
     },
   });
 
-  const onCaptchaVerify = (token: string) => {
-    console.log('Captcha verified with token:', token);
-    form.setValue('recaptcha', token);
-    form.clearErrors('recaptcha');
-    toast.success('Captcha verified successfully!');
-  };
 
-  const onCaptchaError = (error: string) => {
-    console.error('Captcha error:', error);
-    toast.error('Captcha verification failed. Please try again.');
-    form.setValue('recaptcha', '');
-  };
-
-  const onCaptchaExpired = () => {
-    console.log('Captcha expired');
-    toast.warning('Captcha has expired. Please verify again.');
-    form.setValue('recaptcha', '');
-  };
 
   const onSubmit = async (data: LabelSignupData) => {
     setIsLoading(true);
@@ -116,7 +97,6 @@ const LabelSignupForm: React.FC<LabelSignupFormProps> = ({ onBack }) => {
         body: JSON.stringify({
           ...data,
           userType: 'label',
-          recaptchaToken: data.recaptcha,
         }),
       });
 
@@ -126,17 +106,10 @@ const LabelSignupForm: React.FC<LabelSignupFormProps> = ({ onBack }) => {
       } else {
         const errorData = await response.json();
         toast.error(errorData.message || 'Registration failed. Please try again.');
-
-        form.setValue('recaptcha', '');
       }
     } catch (error) {
       console.error('Registration error:', error);
       toast.error('Network error. Please check your connection and try again.');
-
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
-      form.setValue('recaptcha', '');
     } finally {
       setIsLoading(false);
     }
@@ -406,37 +379,7 @@ const LabelSignupForm: React.FC<LabelSignupFormProps> = ({ onBack }) => {
                       </div>
                     </div>
 
-                    {/* reCAPTCHA */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gold flex items-center">
-                        <Shield className="h-5 w-5 mr-2" />
-                        Security Verification
-                      </h3>
 
-                      <FormField
-                        control={form.control}
-                        name="recaptcha"
-                        render={() => (
-                          <FormItem>
-                            <FormLabel className="text-white">
-                              Please verify that you are not a robot
-                            </FormLabel>
-                            <FormControl>
-                              <div className="flex justify-center p-4 bg-black rounded border border-green">
-                                <HCaptchaComponent
-                                  theme="dark"
-                                  size="normal"
-                                  onVerify={onCaptchaVerify}
-                                  onError={onCaptchaError}
-                                  onExpire={onCaptchaExpired}
-                                />
-                              </div>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
 
                     {/* Terms */}
                     <div className="space-y-4">

@@ -66,7 +66,6 @@ router.post('/register', async (req, res) => {
       soundcloudProfile,
       youtubeChannel,
       website,
-      recaptchaToken,
       newsletter
     } = req.body;
 
@@ -90,29 +89,7 @@ router.post('/register', async (req, res) => {
       });
     }
 
-    // Validate hCaptcha token
-    if (!recaptchaToken) {
-      return res.status(400).json({ error: 'Captcha verification required' });
-    }
 
-    try {
-      const captchaResult = await verifyHCaptcha(recaptchaToken);
-
-      if (!captchaResult.success) {
-        return res.status(400).json({
-          error: 'Captcha verification failed',
-          details: captchaResult['error-codes'] || 'Invalid captcha response'
-        });
-      }
-
-      console.log('hCaptcha verification successful:', captchaResult.test ? 'test mode' : 'production mode');
-    } catch (error) {
-      console.error('Captcha verification error:', error);
-      return res.status(500).json({
-        error: 'Captcha verification failed',
-        details: 'Server error during captcha verification'
-      });
-    }
 
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 12);

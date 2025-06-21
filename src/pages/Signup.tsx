@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link, useNavigate } from 'react-router-dom';
-import { HCaptchaComponent } from '@/lib/hcaptcha';
 import { toast } from 'sonner';
 import {
   Card,
@@ -95,7 +94,6 @@ const signupSchema = z.object({
     .min(8, 'Password must be at least 8 characters')
     .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'Password must contain uppercase, lowercase, and number'),
   confirmPassword: z.string(),
-  recaptcha: z.string().min(1, 'Please complete the captcha verification'),
   terms: z.boolean().refine(val => val === true, 'You must agree to the terms'),
   newsletter: z.boolean().optional(),
 }).refine((data) => data.password === data.confirmPassword, {
@@ -174,7 +172,6 @@ const Signup: React.FC = () => {
       instagramHandle: '',
       password: '',
       confirmPassword: '',
-      recaptcha: '',
       terms: false,
       newsletter: false,
     },
@@ -246,24 +243,7 @@ const Signup: React.FC = () => {
     }
   }, [instagramHandle, artistName]);
 
-  const onCaptchaVerify = (token: string) => {
-    console.log('Captcha verified with token:', token);
-    form.setValue('recaptcha', token);
-    form.clearErrors('recaptcha');
-    toast.success('Captcha verified successfully!');
-  };
 
-  const onCaptchaError = (error: string) => {
-    console.error('Captcha error:', error);
-    toast.error('Captcha verification failed. Please try again.');
-    form.setValue('recaptcha', '');
-  };
-
-  const onCaptchaExpired = () => {
-    console.log('Captcha expired');
-    toast.warning('Captcha has expired. Please verify again.');
-    form.setValue('recaptcha', '');
-  };
 
   const onSubmit = async (data: SignupFormData) => {
     setIsLoading(true);
@@ -285,7 +265,6 @@ const Signup: React.FC = () => {
           companyName: data.companyName,
           instagramHandle: data.instagramHandle,
           password: data.password,
-          recaptchaToken: data.recaptcha,
           newsletter: data.newsletter
         }),
       });
@@ -296,18 +275,10 @@ const Signup: React.FC = () => {
       } else {
         const errorData = await response.json();
         toast.error(errorData.message || 'Registration failed. Please try again.');
-
-        form.setValue('recaptcha', '');
       }
     } catch (error) {
       console.error('Registration error:', error);
       toast.error('Network error. Please check your connection and try again.');
-
-      // Reset reCAPTCHA on error
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
-      form.setValue('recaptcha', '');
     } finally {
       setIsLoading(false);
     }
@@ -823,40 +794,7 @@ const Signup: React.FC = () => {
                       />
                     </div>
 
-                    {/* reCAPTCHA */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gold flex items-center">
-                        <Shield className="h-5 w-5 mr-2" />
-                        Security Verification
-                      </h3>
 
-                      <FormField
-                        control={form.control}
-                        name="recaptcha"
-                        render={() => (
-                          <FormItem>
-                            <FormLabel className="text-white">
-                              Please verify that you are not a robot
-                            </FormLabel>
-                            <FormControl>
-                              <div className="flex justify-center p-4 bg-black rounded border border-green">
-                                <HCaptchaComponent
-                                  theme="dark"
-                                  size="normal"
-                                  onVerify={onCaptchaVerify}
-                                  onError={onCaptchaError}
-                                  onExpire={onCaptchaExpired}
-                                />
-                              </div>
-                            </FormControl>
-                            <FormMessage />
-                            <p className="text-xs text-gray-400">
-                              This helps us protect against automated submissions
-                            </p>
-                          </FormItem>
-                        )}
-                      />
-                    </div>
 
                     {/* Terms and Newsletter */}
                     <div className="space-y-4">
